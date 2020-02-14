@@ -17,29 +17,38 @@ module.exports = {
     authenticate :function(req, res, next) {
         const { username, password } = req.body;
                 const user = this.users.find(u => { return u.username === username });
+                //console.log(user);
                 if (!user)
                     return res.status(400).json('Email is not registered');
                 // wrong password
-                else if (!(u.username === password))
+                else if (!(user.password === password))
                     return res.status(400).json('Wrong password.');
                 // authentication succeeded
-                else
-                    return res.status(200).json({ "token": generateJwt(user) });
+                else{
+                   // console.log( user);
+                    var token = this.generateJwt(user);
+                    return res.status(200).json({ "token": token });
+                }
     },
 
 
-    generateJwt : function (req) {
-        const { username, role } = req.body;
+    generateJwt : function (req,res,next) {
+
         return jwt.sign(
                         { 
-                            username: user.username,  
-                            role: user.role 
+                            username: req.username,  
+                            role: req.role 
                         },
                         process.env.JWT_SECRET,
                         {
                             expiresIn: process.env.JWT_EXP
                         }
                     );
+    },
+
+    testmethod : function (req,res){
+        console.log("token validatedS")
+        return res.status(200).json("Cool");
     }
 
 }

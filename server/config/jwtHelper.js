@@ -15,6 +15,7 @@ module.exports.verifyJwtToken = (req, res, next) => {
                 else {
                     req.username = decoded.username;
                     req.role = decoded.role;
+                    console.log(req.username);
                     next();
                 }
             }
