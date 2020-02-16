@@ -102,9 +102,28 @@ module.exports = {
 
     SubmitSurvey : function(req){
         console.log('In DB');
-        console.log(req.body);        
+        console.log(req.body); 
+        var survey = this.survey.surveys.find( s => {return s.SurveyId == req.body.SurveyId});
+        if(!survey){
+             return response = {
+                "Error" : "Survey does not exist"
+            }
+        }       
         this.result.responses.push(req.body);
         return this.result;
     },
+
+    GetSurveyResponseById : function(surveyId){
+        console.log(surveyId);
+        var result = this.result.responses.filter(function(s, index, arr){
+            return s.SurveyId == surveyId
+
+        });
+        return result;
+    },
+
+    GetAllSurveyResponse : function(){
+        return this.result;
+    }
 }
 

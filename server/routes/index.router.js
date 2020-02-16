@@ -19,6 +19,7 @@ router.post( '/addQuestion', jwtHelper.verifyJwtToken, Survey.AddQuestions);
 router.get( '/survey', jwtHelper.verifyJwtToken, Survey.GetSurveyById); 
 router.delete( '/deleteSurvey', jwtHelper.verifyJwtToken, Survey.DeleteSurveyById); 
 router.post( '/submitSurvey', jwtHelper.verifyJwtToken, Survey.SubmitSurvey); 
+router.get( '/surveyResponse', jwtHelper.verifyJwtToken, Survey.GetSurveyResponse); 
 
 module.exports = router;
 

@@ -80,3 +80,23 @@ module.exports.SubmitSurvey = (req, res, next) => {
 	var response =DB.SubmitSurvey(req);
 	return res.json(response);
 }
+
+module.exports.GetSurveyResponse = (req, res, next) => {
+	let id = req.query.id;
+	if(id){
+		var response =DB.GetSurveyResponseById(id);
+		return res.json(response);
+	}
+	else{
+		if(req.role == 'admin'){
+			var response =DB.GetAllSurveyResponse();
+			return res.json(response);
+		}
+		else{
+			response = {
+				"Error" : "Only accessible for ADMIN"
+			}
+			return res.json(response);
+		}
+	}
+}
