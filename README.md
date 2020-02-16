@@ -5,7 +5,7 @@
 4) now end points can be verify through PostMan.
 
 #End points details
-1) To get the bearer token (refer user.js for User profiles)
+1) To get the bearer token (refer user.js for User profiles) \n
 POST --> localhost:3000/api/authenticate
 requestBody --> {
                     "username": "lokesh",
