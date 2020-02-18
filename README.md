@@ -66,3 +66,6 @@ GET  --> localhost:3000/api/surveyResponse
   
 9) Endpoint to get all the response for a specified SurveyId  
 GET  --> localhost:3000/api/surveyResponse?id=1  
+
+10) Endpoint to resize a image  
+GET --> localhost:3000/api/resizeImage?url=http://images.sadhguru.org/sites/default/files/media_files/iso/en/64083-natures-temples.jpg 
