@@ -17,7 +17,6 @@
     "lodash": "^4.17.15",
     "lodash.isempty": "^4.4.0",
     "mongoose": "^5.1.2",
-    "node-downloader-helper": "^1.0.12",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0"
   },

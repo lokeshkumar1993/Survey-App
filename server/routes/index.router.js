@@ -4,7 +4,6 @@ const router = express.Router();
 //const User = require('../models/user');
 const User = require('../controllers/user.controller');
 const Survey = require('../controllers/survey.controller');
-const ImageCtr = require('../controllers/image.controller');
 const jwtHelper = require('../config/jwtHelper');
 
 //router.post('/authenticate',(req,res) => {return User.authenticate(req,res)});
@@ -21,7 +20,6 @@ router.get( '/survey', jwtHelper.verifyJwtToken, Survey.GetSurveyById);
 router.delete( '/deleteSurvey', jwtHelper.verifyJwtToken, Survey.DeleteSurveyById); 
 router.post( '/submitSurvey', jwtHelper.verifyJwtToken, Survey.SubmitSurvey); 
 router.get( '/surveyResponse', jwtHelper.verifyJwtToken, Survey.GetSurveyResponse); 
-router.get( '/resizeImage', jwtHelper.verifyJwtToken,ImageCtr.Download , ImageCtr.Resize);
 
 module.exports = router;
 
