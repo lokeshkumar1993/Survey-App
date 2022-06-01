@@ -20,7 +20,7 @@
     "node-downloader-helper": "^1.0.12",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
-    "sharp": "^0.24.1"
+    "sharp": "^0.30.5"
   },
   "devDependencies": {
     "nodemon": "^2.0.2"
